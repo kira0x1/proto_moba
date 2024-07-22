@@ -202,22 +202,22 @@
       ]
     },
     {
-      "__guid": "daff8c20-fea6-48cd-a764-95582ca90e21",
+      "__guid": "e585847f-9079-4621-a266-0ca838423be6",
       "Flags": 0,
-      "Name": "Camera",
-      "Position": "-633.5677,0,588.3128",
-      "Rotation": "0,0.3826834,0,0.9238796",
+      "Name": "Camera (1)",
+      "Position": "0,0,300",
+      "Rotation": "0,0.7071068,0,0.7071068",
       "Enabled": true,
       "Components": [
         {
           "__type": "Sandbox.CameraComponent",
-          "__guid": "8e1fffc4-08c4-470a-b872-479bf7ad2f91",
+          "__guid": "29041148-576c-4ded-9c8d-62efbba9cc00",
           "BackgroundColor": "0.33333,0.46275,0.52157,1",
           "ClearFlags": "All",
           "FieldOfView": 45.5,
           "IsMainCamera": true,
-          "Orthographic": false,
-          "OrthographicHeight": 1204,
+          "Orthographic": true,
+          "OrthographicHeight": 602,
           "Priority": 1,
           "RenderExcludeTags": "",
           "RenderTags": "",
@@ -228,7 +228,7 @@
         },
         {
           "__type": "Sandbox.Bloom",
-          "__guid": "2b77c9ae-45a6-4158-bd79-ffbd09c057f8",
+          "__guid": "b871e2bd-2404-4fac-8493-dd1949d53e2c",
           "BloomColor": {
             "color": [
               {
@@ -257,7 +257,7 @@
         },
         {
           "__type": "Sandbox.Tonemapping",
-          "__guid": "dc45c737-1109-4133-bee2-400aca6893e2",
+          "__guid": "64fddb55-2eeb-442e-b13c-9707e85968af",
           "__version": 1,
           "ExposureBias": 2,
           "ExposureCompensation": 0,
@@ -269,29 +269,76 @@
         },
         {
           "__type": "Sandbox.Sharpen",
-          "__guid": "f0c02dea-25e7-48d9-a466-30391277f486",
+          "__guid": "348107da-971e-4c74-ab5a-aca77e35cbad",
           "Scale": 0.2
         }
       ]
     },
     {
-      "__guid": "ad976260-138b-4ed3-81e1-2837374c45fd",
+      "__guid": "daff8c20-fea6-48cd-a764-95582ca90e21",
+      "Flags": 0,
+      "Name": "Camera",
+      "Position": "-633.5677,0,588.3128",
+      "Rotation": "0,0.3826834,0,0.9238796",
+      "Components": [
+        {
+          "__type": "Sandbox.CameraComponent",
+          "__guid": "8e1fffc4-08c4-470a-b872-479bf7ad2f91",
+          "BackgroundColor": "0.33333,0.46275,0.52157,1",
+          "ClearFlags": "All",
+          "FieldOfView": 45.5,
+          "IsMainCamera": true,
+          "Orthographic": false,
+          "OrthographicHeight": 1204,
+          "Priority": 1,
+          "RenderExcludeTags": "",
+          "RenderTags": "",
+          "TargetEye": "None",
+          "Viewport": "0,0,1,1",
+          "ZFar": 10000,
+          "ZNear": 10
+        }
+      ]
+    },
+    {
+      "__guid": "99acdc37-694a-4b7d-abbf-80004ba893ba",
       "Flags": 0,
       "Name": "Manager",
+      "Position": "-94.60005,-153.3,86.50003",
       "Rotation": "0,0,0,0",
       "Enabled": true,
       "Components": [
         {
           "__type": "Kira.CityBuilder",
-          "__guid": "061538a5-1471-44eb-a8ba-bc3095e72b83",
-          "CellColor": "1,1,1,1",
+          "__guid": "992e63c1-445e-46ad-a7b3-25cf5f126959",
+          "CellColor": "0.13023,0.13023,0.13023,1",
           "CellHeight": 1,
           "CellTextColor": "1,1,1,1",
-          "GridCols": 6,
-          "GridRows": 6,
-          "GridScale": 20,
+          "GridCols": 5,
+          "GridRows": 5,
+          "GridScale": 53.26,
           "HoverColor": "0,1,0,1",
-          "Offset": 0
+          "Offset": 8.78
+        }
+      ]
+    },
+    {
+      "__guid": "77b20781-c164-4ce1-8042-7ab6d1980b6a",
+      "Flags": 0,
+      "Name": "Screen",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ScreenPanel",
+          "__guid": "f11c773b-7ece-4819-9e80-9ed3d47fae2f",
+          "AutoScreenScale": true,
+          "Opacity": 1,
+          "Scale": 1,
+          "ZIndex": 100
+        },
+        {
+          "__type": "PlayerUI",
+          "__guid": "a32f5c3b-cdfb-4677-9bfa-fada51635bb4"
         }
       ]
     }

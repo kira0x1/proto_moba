@@ -84,21 +84,38 @@ public sealed class CityBuilder : Component
             Gizmo.Draw.Color = cellColor;
 
             var pos = Transform.LocalPosition;
-            pos.x += x * (GridScale * 2f + Offset);
-            pos.y += y * (GridScale * 2f + Offset);
+            pos.x += x * (GridScale + Offset);
+            pos.y += y * (GridScale + Offset);
 
-            var minc = pos - GridScale;
-            var maxc = pos + GridScale;
+            var min = pos;
+            min.z = pos.z;
 
-            var box = new BBox(minc, maxc);
+            var max = pos + GridScale;
+            max.z = pos.z + CellHeight;
+
+            var box = new BBox(min, max);
             Gizmo.Draw.SolidBox(box);
+
+            DrawGridLengths(box);
         }
 
-        using (Gizmo.Scope("CellText"))
-        {
-            Gizmo.Draw.Color = CellTextColor;
-            DrawGridText(x, y);
-        }
+        // using (Gizmo.Scope("CellText"))
+        // {
+        //     Gizmo.Draw.Color = CellTextColor;
+        //     DrawGridText(x, y);
+        // }
+    }
+
+    private void DrawGridLengths(BBox box)
+    {
+        Gizmo.Draw.Color = Color.Green;
+        var linePos = Transform.Position;
+        linePos.x -= 20f;
+        linePos.y -= 20f;
+
+
+        Gizmo.Draw.Line(linePos, linePos.WithX(box.Maxs.x));
+        Gizmo.Draw.Line(linePos, linePos.WithY(box.Maxs.y));
     }
 
     public void HandleGridHovering()
