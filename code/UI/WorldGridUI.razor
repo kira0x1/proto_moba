@@ -1,3 +1,4 @@
+@using Sandbox.Razor
 @inherits PanelComponent
 
 <root>
@@ -6,5 +7,23 @@
 
 @code
 {
+    private Sandbox.UI.WorldInput wi = new Sandbox.UI.WorldInput();
+
+
+    protected override void OnUpdate()
+    {
+        base.OnUpdate();
+
+
+        var cam = Scene.Components.GetAll<CameraComponent>().FirstOrDefault();
+        if (cam == null) return;
+
+        var pos = Mouse.Position;
+
+        var ray = Scene.Camera.ScreenPixelToRay(pos);
+        wi.Ray = ray;
+    }
+
+
     // protected override int BuildHash() => HashCode.Combine();
 }

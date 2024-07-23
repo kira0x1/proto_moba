@@ -229,7 +229,6 @@
         {
           "__type": "Sandbox.Bloom",
           "__guid": "2b77c9ae-45a6-4158-bd79-ffbd09c057f8",
-          "__enabled": false,
           "BloomColor": {
             "color": [
               {
@@ -257,22 +256,9 @@
           "ThresholdWidth": 0.5
         },
         {
-          "__type": "Sandbox.Tonemapping",
-          "__guid": "dc45c737-1109-4133-bee2-400aca6893e2",
-          "__version": 1,
-          "ExposureBias": 2,
-          "ExposureCompensation": 0,
-          "ExposureMethod": "RGB",
-          "MaximumExposure": 2,
-          "MinimumExposure": 1,
-          "Mode": "Legacy",
-          "Rate": 4.49
-        },
-        {
           "__type": "Sandbox.Sharpen",
           "__guid": "f0c02dea-25e7-48d9-a466-30391277f486",
-          "__enabled": false,
-          "Scale": 0.2
+          "Scale": 0.16
         }
       ]
     },
@@ -332,15 +318,26 @@
           "__type": "Sandbox.WorldPanel",
           "__guid": "ea7a83c8-8f30-47eb-aa22-242899154a30",
           "HorizontalAlign": "Center",
-          "InteractionRange": 1000,
+          "InteractionRange": 7000,
           "LookAtCamera": false,
           "PanelSize": "8192,8192",
           "RenderScale": 1,
           "VerticalAlign": "Center"
         },
         {
+          "__type": "Sandbox.WorldInput",
+          "__guid": "7973e94d-c4f9-43cb-9ab6-2e4773b4c95d",
+          "LeftMouseAction": "Attack1",
+          "RightMouseAction": "Attack2"
+        },
+        {
           "__type": "Kira.UI.GraphTest",
-          "__guid": "a201742f-1535-40bc-a1f7-ee44e4e517e3"
+          "__guid": "a201742f-1535-40bc-a1f7-ee44e4e517e3",
+          "__enabled": false
+        },
+        {
+          "__type": "WorldGridUI",
+          "__guid": "fedf9472-39ac-4d1d-93a3-5089944a7eaa"
         }
       ]
     }
