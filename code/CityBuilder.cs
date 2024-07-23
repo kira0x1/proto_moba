@@ -27,6 +27,9 @@ public sealed class CityBuilder : Component
     [Property, Category("Cell")]
     public Color HoverColor { get; set; } = Color.Green;
 
+    [Property]
+    private bool DisplayText { get; set; }
+
     private Vector2 MousePos { get; set; }
     public bool IsOnGridSlot { get; set; }
 
@@ -114,6 +117,8 @@ public sealed class CityBuilder : Component
 
             DrawGridLengths(box);
         }
+
+        if (!DisplayText) return;
 
         using (Gizmo.Scope("CellText"))
         {

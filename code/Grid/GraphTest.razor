@@ -1,0 +1,130 @@
+@namespace Kira.UI
+@using System
+@using Kira.Util
+@using Sandbox.UI
+@inherits PanelComponent
+
+<root>
+    <div class="container">
+        <div class="grid"></div>
+    </div>
+</root>
+
+@code
+{
+    private bool IsSearching { get; set; }
+
+    // If the stop button has been clicked
+    private bool HasStopped { get; set; }
+
+    // Has searched atleast once
+    private bool HasSearched { get; set; }
+
+    private Graph graph;
+    private Panel GridDiv;
+
+    protected override void OnTreeFirstBuilt()
+    {
+        base.OnTreeFirstBuilt();
+
+        graph = new Graph(9, 8);
+        GridDiv = Panel.Descendants.ElementAt(1);
+        GenerateGraphNodes();
+    }
+
+    protected override void OnTreeBuilt()
+    {
+        base.OnTreeBuilt();
+        Refresh();
+    }
+
+    private void Refresh()
+    {
+        GridDiv = Panel.Descendants.ElementAt(1);
+        GridDiv.DeleteChildren(true);
+        GenerateGraphNodes();
+    }
+
+    private void GenerateGraphNodes()
+    {
+        foreach (GraphNode node in graph.AllNodes)
+        {
+            var nodeUI = new GraphNodeUI(node, graph);
+            nodeUI.AddClass("node");
+            GridDiv.AddChild(nodeUI);
+        }
+    }
+
+    private async void OnStartSearch()
+    {
+        if (graph.IsSearching) return;
+
+        HasSearched = true;
+
+        await graph.StartSearch();
+
+        if (HasStopped)
+        {
+            HasStopped = false;
+            return;
+        }
+
+        await Task.Delay(200);
+
+        if (HasStopped)
+        {
+            HasStopped = false;
+            return;
+        }
+
+
+        graph.FindPathFromGoal();
+    }
+
+    private async void OnStartDjirkstra()
+    {
+        if (graph.IsSearching) return;
+
+        HasSearched = true;
+        await graph.StartSearchWithDistance();
+
+        if (HasStopped)
+        {
+            HasStopped = false;
+            return;
+        }
+
+        await Task.Delay(200);
+
+        if (HasStopped)
+        {
+            HasStopped = false;
+            return;
+        }
+
+        graph.FindPathFromGoal();
+    }
+
+    private void OnStopSearch()
+    {
+        HasStopped = true;
+        graph.CancelSearch();
+    }
+
+    private void OnClearNodes()
+    {
+        graph.ResetNodes();
+        HasSearched = false;
+    }
+
+    protected override int BuildHash()
+    {
+        // ReSharper disable once ConvertIfStatementToReturnStatement
+        if (graph != null)
+        {
+            return HashCode.Combine(graph.IsSearching, graph.AllNodes.Select(x => x.GetHashCode()));
+        }
+
+        return HashCode.Combine(graph?.IsSearching);
+    }
+}

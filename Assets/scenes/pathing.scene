@@ -229,6 +229,7 @@
         {
           "__type": "Sandbox.Bloom",
           "__guid": "2b77c9ae-45a6-4158-bd79-ffbd09c057f8",
+          "__enabled": false,
           "BloomColor": {
             "color": [
               {
@@ -265,11 +266,12 @@
           "MaximumExposure": 2,
           "MinimumExposure": 1,
           "Mode": "Legacy",
-          "Rate": 1
+          "Rate": 4.49
         },
         {
           "__type": "Sandbox.Sharpen",
           "__guid": "f0c02dea-25e7-48d9-a466-30391277f486",
+          "__enabled": false,
           "Scale": 0.2
         }
       ]
@@ -284,9 +286,11 @@
         {
           "__type": "Kira.CityBuilder",
           "__guid": "992e63c1-445e-46ad-a7b3-25cf5f126959",
+          "__enabled": false,
           "CellColor": "0.13023,0.13023,0.13023,1",
           "CellHeight": 0,
           "CellTextColor": "1,1,1,1",
+          "DisplayText": false,
           "GridCols": 6,
           "GridRows": 7,
           "GridScale": 58.98,
@@ -313,6 +317,30 @@
         {
           "__type": "PlayerUI",
           "__guid": "a32f5c3b-cdfb-4677-9bfa-fada51635bb4"
+        }
+      ]
+    },
+    {
+      "__guid": "e96846a9-1144-418e-9460-850491ae6913",
+      "Flags": 0,
+      "Name": "World",
+      "Position": "0,0,1",
+      "Rotation": "0.7071068,0.00000003090862,0.7071068,-0.00000003090862",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.WorldPanel",
+          "__guid": "ea7a83c8-8f30-47eb-aa22-242899154a30",
+          "HorizontalAlign": "Center",
+          "InteractionRange": 1000,
+          "LookAtCamera": false,
+          "PanelSize": "8192,8192",
+          "RenderScale": 1,
+          "VerticalAlign": "Center"
+        },
+        {
+          "__type": "Kira.UI.GraphTest",
+          "__guid": "a201742f-1535-40bc-a1f7-ee44e4e517e3"
         }
       ]
     }

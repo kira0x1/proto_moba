@@ -15,7 +15,6 @@ public sealed class WorldPathing : Component
             {
                 var pos = Transform.Position;
 
-
                 // var box = new BBox()
                 // Gizmo.Draw.SolidBox();
             }
